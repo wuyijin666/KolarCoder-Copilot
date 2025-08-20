@@ -39,7 +39,7 @@ public class JsonSchema {
     }
 
     // Static Factory method
-    public static JsonSchema Object() {
+    public static JsonSchema object() {
         JsonSchema schema = new JsonSchema();
         schema.type = "object";
         schema.properties = new HashMap<>();

@@ -1,7 +1,8 @@
 package org.kolar.kolarcodercopilot.tools;
 
-import com.fasterxml.jackson.module.jsonSchema.JsonSchema;
+
 import org.kolar.kolarcodercopilot.ToolResult;
+import org.kolar.kolarcodercopilot.schema.JsonSchema;
 import org.kolar.kolarcodercopilot.schema.SchemaValidator;
 import org.kolar.kolarcodercopilot.service.ToolExecutionLogger;
 import org.slf4j.Logger;
