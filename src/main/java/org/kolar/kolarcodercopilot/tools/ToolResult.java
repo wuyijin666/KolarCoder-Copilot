@@ -1,4 +1,4 @@
-package org.kolar.kolarcodercopilot;
+package org.kolar.kolarcodercopilot.tools;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 
@@ -66,4 +66,30 @@ class FileDiff {
  */
 @JsonInclude(JsonInclude.Include.NON_NULL)
 class ToolConfirmationDetails {
+    private final String type;
+    private final String title;
+    private final String description;
+    private final Object details;
+
+    public ToolConfirmationDetails(String type, String title, String description, Object details) {
+        this.type = type;
+        this.title = title;
+        this.description = description;
+        this.details = details;
+    }
+
+    public static ToolConfirmationDetails edit(String title, String fileName, String fileDiff) {
+        return new ToolConfirmationDetails("edit", title, "File edit confirmation",
+                new FileDiff(fileDiff, fileName));
+    }
+
+    public static ToolConfirmationDetails exec(String title, String command) {
+        return new ToolConfirmationDetails("exec", title, "Command execution confirmation", command);
+    }
+
+    // Getters
+    public String getType() { return type; }
+    public String getTitle() { return title; }
+    public String getDescription() { return description; }
+    public Object getDetails() { return details; }
 }

@@ -184,16 +184,18 @@ public class LogStreamService {
      * 推送执行计划生成事件
      */
     public void pushExecutionPlanGenerated(String taskId, String planSummary) {
-        AnalysisEvent event = new AnalysisEvent();
-        event.setType("EXECUTION_PLAN");
-        event.setTaskId(taskId);
-        event.setStepName("执行计划");
-        event.setDescription(planSummary);
-        event.setStatus("COMPLETED");
-        event.setMessage("执行计划已生成");
-        event.setTimestamp(LocalDateTime.now().format(formatter));
-        event.setIcon("📋");
 
-        sendLogEvent(taskId, event);
+    }
+
+    public void pushToolExecuteSummary(String taskId, String methodName, String fileInfo, String summary, String reason) {
+    }
+
+    public void pushToolStart(String taskId, String methodName, String fileInfo, String startMessage) {
+    }
+
+    public void pushToolExecuteSuccess(String taskId, String methodName, String fileInfo, Object proceedResult, String successMessage, long executionTime) {
+    }
+
+    public void pushToolError(String taskId, String methodName, String fileInfo, String errorMessage, long executionTime) {
     }
 }

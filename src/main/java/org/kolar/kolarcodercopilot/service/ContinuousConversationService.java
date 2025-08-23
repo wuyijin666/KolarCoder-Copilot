@@ -46,8 +46,6 @@ public class ContinuousConversationService {
         this.taskSummaryService = taskSummaryService;
     }
 
-
-
     public String startTask(String initialMessage){
        String taskId = UUID.randomUUID().toString();
        TaskStatus status = new TaskStatus(taskId);

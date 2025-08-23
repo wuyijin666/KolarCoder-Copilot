@@ -18,14 +18,15 @@ import java.util.List;
 public class SpringAIConfiguration {
     @Autowired
     private SchemaValidator schemaValidator;
+    @Autowired
+    private AppProperties  appProperties;
+    @Autowired
+    private ChatClient chatClient;
 
     @Bean
     public ChatClient chatClient(ChatModel chatModel,
-                                 FileOperationTools fileOperationTools,
-                                 SmartEditTool smartEditTool,
-                                 AnalyzeProjectTool analyzeProjectTool,
-                                 ProjectScaffoldTool projectScaffoldTool,
-                                 AppProperties appProperties) {
+                                 SmartEditTool smartEditTool) {
+        // 临时简化依赖用于测试AOP功能
         // 动态获取工作目录路径
         String workspaceDir = appProperties.getWorkspace().getRootDirectory();
 

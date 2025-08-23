@@ -1,10 +1,10 @@
 package org.kolar.kolarcodercopilot.tools;
 
 
-import org.kolar.kolarcodercopilot.ToolResult;
+
+
 import org.kolar.kolarcodercopilot.schema.JsonSchema;
 import org.kolar.kolarcodercopilot.schema.SchemaValidator;
-import org.kolar.kolarcodercopilot.service.ToolExecutionLogger;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -67,6 +67,9 @@ public abstract class BaseTool<P> {
         }
     }
 
+    public String validateToolParams(SmartEditTool.SmartEditParams params) {
+        return null;
+    }
 
     /**
      * Execute tool
@@ -74,6 +77,11 @@ public abstract class BaseTool<P> {
      * @return execute result
      */
     public abstract CompletableFuture<ToolResult> execute(P params);
+
+    public CompletableFuture<ToolConfirmationDetails> shouldConfirmExecute(P params){
+        return CompletableFuture.completedFuture(null);
+
+    }
 
     /**
      * Get tools description (for AI understanding)
@@ -115,9 +123,5 @@ public abstract class BaseTool<P> {
     public SchemaValidator getSchemaValidator() {
         return schemaValidator;
     }
-
-
-
-
 
 }
